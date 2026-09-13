@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Solid Black Rainbow Rectangle</title>
+  <title>Solid Black Rainbow Rectangle (Sides)</title>
   <style>
     html, body {
       margin: 0 !important;
@@ -35,16 +35,16 @@
       user-select: none;
     }
 
-    /* Top & Bottom Rainbow Lines */
+    /* Left & Right Rainbow Lines */
     .rainbow-black-rectangle::before,
     .rainbow-black-rectangle::after {
       content: "";
       position: absolute;
-      left: 0;
-      right: 0;
-      height: 2px; /* Thickness of the rainbow line */
+      top: 0;
+      bottom: 0;
+      width: 2px; /* Thickness of the rainbow line */
       background: linear-gradient(
-        90deg, 
+        180deg, 
         #ff0000 0%, 
         #ff7f00 14%, 
         #ffff00 28%, 
@@ -56,14 +56,14 @@
       );
     }
 
-    /* Position Top Rainbow */
+    /* Position Left Rainbow */
     .rainbow-black-rectangle::before {
-      top: 0;
+      left: 0;
     }
 
-    /* Position Bottom Rainbow */
+    /* Position Right Rainbow */
     .rainbow-black-rectangle::after {
-      bottom: 0;
+      right: 0;
     }
   </style>
 </head>
