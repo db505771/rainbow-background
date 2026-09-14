@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Solid Black Rainbow Rectangle (Sides)</title>
+  <title>Solid Black Rainbow Framed Rectangle</title>
   <style>
     html, body {
       margin: 0 !important;
@@ -35,14 +35,43 @@
       user-select: none;
     }
 
-    /* Left & Right Rainbow Lines */
+    /* Top & Bottom Rainbow Lines (Horizontal) */
     .rainbow-black-rectangle::before,
     .rainbow-black-rectangle::after {
       content: "";
       position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px; /* Thickness of top/bottom lines */
+      background: linear-gradient(
+        90deg, 
+        #ff0000 0%, 
+        #ff7f00 14%, 
+        #ffff00 28%, 
+        #00ff00 42%, 
+        #00ffff 57%, 
+        #0000ff 71%, 
+        #8b00ff 85%, 
+        #ff00ff 100%
+      );
+      z-index: 2;
+    }
+
+    .rainbow-black-rectangle::before { top: 0; }
+    .rainbow-black-rectangle::after { bottom: 0; }
+
+    /* Left & Right Rainbow Lines (Vertical) */
+    .rainbow-side-left,
+    .rainbow-side-right {
+      position: absolute;
       top: 0;
       bottom: 0;
-      width: 2px; /* Thickness of the rainbow line */
+      width: 2px; /* Thickness of side lines */
+      z-index: 2;
+    }
+
+    .rainbow-side-left {
+      left: 0;
       background: linear-gradient(
         180deg, 
         #ff0000 0%, 
@@ -56,22 +85,29 @@
       );
     }
 
-    /* Position Left Rainbow */
-    .rainbow-black-rectangle::before {
-      left: 0;
-    }
-
-    /* Position Right Rainbow */
-    .rainbow-black-rectangle::after {
+    .rainbow-side-right {
       right: 0;
+      background: linear-gradient(
+        180deg, 
+        #ff0000 0%, 
+        #ff7f00 14%, 
+        #ffff00 28%, 
+        #00ff00 42%, 
+        #00ffff 57%, 
+        #0000ff 71%, 
+        #8b00ff 85%, 
+        #ff00ff 100%
+      );
     }
   </style>
 </head>
 <body>
 
-  <!-- Non-button rectangular container -->
+  <!-- Non-button rectangular container framed on all 4 sides -->
   <div class="rainbow-black-rectangle">
-    <!-- Place any static text or elements inside here -->
+    <div class="rainbow-side-left"></div>
+    <div class="rainbow-side-right"></div>
+    <!-- Place any static content here -->
   </div>
 
 </body>
